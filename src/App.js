@@ -5,6 +5,7 @@ class App extends Component {
     hour: new Date(),
     minutes: new Date(),
     seconds: new Date(),
+    month: new Date(),
   };
 
   callMe() {
@@ -19,6 +20,7 @@ class App extends Component {
     let minutes = this.state.minutes.getMinutes();
     let seconds = this.state.minutes.getSeconds();
 
+    console.log(this.state.hour.getFullYear());
     return (
       <section className="timer-container">
         <div className="title-container">
@@ -28,14 +30,17 @@ class App extends Component {
         <div className="section-container">
           <section id="hour-section">
             <p>{this.state.hour.getHours()}</p>
+            <sub>{this.state.hour.getDate()}</sub>
           </section>
           <span>:</span>
-          <section>
+          <section id="minutes-section">
             <p>{minutes < 10 ? '0' + minutes : minutes}</p>
+            <sub>/{this.state.hour.getMonth() + 1}</sub>
           </section>
           <span>:</span>
-          <section>
+          <section id="seconds-section">
             <p>{seconds < 10 ? '0' + seconds : seconds}</p>
+            <sub>/{this.state.hour.getFullYear()}</sub>
           </section>
         </div>
         {this.callMe()}
