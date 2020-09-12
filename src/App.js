@@ -25,8 +25,8 @@ class App extends Component {
           <h1>Current Time</h1>
         </div>
 
-        <div className="divdoida">
-          <section>
+        <div className="section-container">
+          <section id="hour-section">
             <p>{this.state.hour.getHours()}</p>
           </section>
           <span>:</span>
